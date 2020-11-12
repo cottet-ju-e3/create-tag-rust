@@ -15,7 +15,7 @@ fn main() {
         None => panic!("failed to read oid of main branch"),
         Some(oid) => oid
     };
-    let upstream_oid = Oid::zero();
+    let upstream_oid = Oid::from_str("49345913f87623967e7fd4cc8aa9476198885356").unwrap();
     let (a,b) = match repo.graph_ahead_behind(main_branch_oid, upstream_oid){
         Ok(sizes) => sizes,
         Err(e) => panic!("failed to read sizes {}", e),
